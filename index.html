@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SafeGuard - Personal Safety</title>
+</head>
+<body>
+
+    <nav>
+    <div class="nav-brand">🛡️ SafeGuard</div>
+    <ul class="nav-links">
+        <li><a href="#sos">SOS</a></li>
+        <li><a href="#location">Location</a></li>
+        <li><a href="#checkin">Check-in</a></li>
+        <li><a href="#contacts">Contacts</a></li>
+    </ul>
+    </nav>
+
+    <section id="sos" class="hero">
+    <div class="hero-content">
+        <h1>Your Safety, Our Priority</h1>
+        <p>In an emergency, every second counts. Press the SOS button to alert your emergency contacts immediately.</p>
+        <button id="sos-btn" onclick="triggerSOS()">
+        🚨 SOS
+        </button>
+        <div id="sos-status" class="status-box hidden">
+        ⚠️ SOS Alert Sent! Your emergency contacts have been notified.
+        </div>
+    </div>
+    </section>
+
+    <section id="location" class="section">
+    <div class="section-content">
+        <h2>📍 Live Location</h2>
+        <p>Share your real-time location with your emergency contacts.</p>
+        <button id="location-btn" onclick="getLocation()">
+        Get My Location
+        </button>
+        <div id="location-status" class="status-box hidden">
+        <p id="location-coords">Fetching location...</p>
+        <p id="location-address">Please wait...</p>
+        </div>
+    </div>
+    </section>
+
+    <section id="checkin" class="section">
+    <div class="section-content">
+        <h2>⏱️ Check-in Timer</h2>
+        <p>Set a timer. If you don't check in before it runs out, your contacts will be alerted.</p>
+
+        <div class="timer-controls">
+        <label for="timer-input">Set timer (minutes):</label>
+        <input type="number" id="timer-input" min="1" max="60" value="5">
+        </div>
+
+        <div class="timer-buttons">
+        <button onclick="startTimer()">Start Timer</button>
+        <button onclick="checkIn()">✅ I'm Safe</button>
+        <button onclick="stopTimer()">Stop</button>
+        </div>
+
+        <div id="timer-display" class="timer-display hidden">
+        <h3>Time remaining:</h3>
+        <p id="countdown">00:00</p>
+        </div>
+
+        <div id="timer-status" class="status-box hidden"></div>
+    </div>
+    </section>
+
+    <section id="contacts" class="section">
+    <div class="section-content">
+        <h2>👥 Emergency Contacts</h2>
+        <p>Add up to 3 people who will be alerted in an emergency.</p>
+
+        <div class="contact-form">
+        <input type="text" id="contact-name" placeholder="Contact Name">
+        <input type="tel" id="contact-phone" placeholder="Phone Number">
+        <button onclick="addContact()">Add Contact</button>
+        </div>
+
+        <div id="contacts-status" class="status-box hidden"></div>
+
+        <div id="contacts-list" class="contacts-list"></div>
+
+    </div>
+    </section>
+
+    <footer>
+        <p>🛡️ SafeGuard — Your personal safety companion</p>
+        <p>In a real emergency always call your local emergency number</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
